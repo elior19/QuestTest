@@ -1,0 +1,8 @@
+<div class="container">
+  <p class="head-line">Workers</p>
+  <button class="worker" *ngFor="let worker of workersList"
+          [ngClass]="{'selected-worker': worker.id === selectedWorkerId}"
+          (click)="onWorkerClicked(worker.id)">
+    {{worker.name}}
+  </button>
+</div>

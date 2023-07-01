@@ -1,0 +1,18 @@
+<table class="flight-information-table" *ngIf="flightInformation" class="mat-elevation-z0">
+  <tr>
+    <td>Plane Number</td>
+    <td>{{flightInformation.planeNumber}}</td>
+  </tr>
+  <tr>
+    <td>Duration</td>
+    <td>{{flightInformation.duration | timeDuration}}</td>
+  </tr>
+  <tr>
+    <td>Origin Gate</td>
+    <td>{{flightInformation.originGate}}</td>
+  </tr>
+  <tr>
+    <td>Destination Gate</td>
+    <td>{{flightInformation.destinationGate}}</td>
+  </tr>
+</table>

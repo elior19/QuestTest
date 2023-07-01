@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {DataReceiverService} from './services/data-receiver.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'quest';
+
+  constructor(private _dataReceiverService: DataReceiverService) { }
 }

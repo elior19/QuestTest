@@ -1,0 +1,22 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.workers-list {
+  width: 15%;
+  border: black solid 2px;
+}
+
+.flights-table {
+  width: 65%;
+  padding: 10px;
+  border: black solid 2px;
+}
+
+.flight-information {
+  width: 20%;
+  padding: 10px;
+  border: black solid 2px;
+}

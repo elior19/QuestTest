@@ -1,0 +1,14 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 60px;
+  font-size: smaller;
+}
+
+tr {
+  border-bottom: 1px solid #ddd;
+}
+
+td {
+  padding: 16px;
+}

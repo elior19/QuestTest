@@ -1,0 +1,24 @@
+table {
+  width: 100%;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.mat-mdc-row .mat-mdc-cell {
+  cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+  font-weight: bold;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+tr.mat-row:hover {
+  cursor: pointer;
+}
+
+.row-is-clicked {
+  font-weight: bold;
+  background-color: lightgrey;
+}

@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.head-line {
+  background-color: #36f8ff;
+  color: black;
+  font-weight: bold;
+  font-size: xx-large;
+  margin: 0;
+  padding: 32px;
+  border-bottom: black solid 4px;
+}
+
+.worker {
+  color: black;
+  font-size: medium;
+  background-color: transparent;
+  border: transparent;
+  text-align: left;
+}
+
+.worker:hover {
+  font-weight: bold;
+  border: black solid 1px;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+
+.selected-worker {
+  font-weight: bold;
+  border: black solid 1px;
+  background-color: lightgrey;
+}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: false,\n  serverUrl: 'http://20.66.25.216:3000/'\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
