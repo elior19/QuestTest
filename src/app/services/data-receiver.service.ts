@@ -20,7 +20,6 @@ export class DataReceiverService implements OnDestroy{
   }
 
   getData(): void {
-    // TODO: Is this should be interval too?
     this.getWorkers();
 
     if (this.interval) {

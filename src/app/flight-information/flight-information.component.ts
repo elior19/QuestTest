@@ -15,7 +15,7 @@ export class FlightInformationComponent implements OnInit {
   constructor(private _store: Store<any>) { }
 
   ngOnInit() {
-    this._store.select(selectFlightInformation).subscribe((flightInformation) => {
+    this._store.select(selectFlightInformation).subscribe((flightInformation: FlightInformation) => {
       this.flightInformation = flightInformation;
     });
   }

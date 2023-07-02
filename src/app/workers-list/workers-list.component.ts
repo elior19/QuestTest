@@ -19,7 +19,7 @@ export class WorkersListComponent implements OnInit {
   constructor(private _store: Store<any>, private _dataReceiverService: DataReceiverService) { }
 
   ngOnInit() {
-    this._store.select(selectWorkers).subscribe((workers) => {
+    this._store.select(selectWorkers).subscribe((workers: Worker[]) => {
       this._workersList = workers;
     });
   }

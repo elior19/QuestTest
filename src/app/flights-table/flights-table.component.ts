@@ -19,7 +19,7 @@ export class FlightsTableComponent implements OnInit {
   constructor(private _store: Store<any>) { }
 
   ngOnInit() {
-    this._store.select(selectFlights).subscribe((flights) => {
+    this._store.select(selectFlights).subscribe((flights: Flight[]) => {
       this.flightsList = flights;
       // TODO: need to dispatch the first flight information here?
     });
