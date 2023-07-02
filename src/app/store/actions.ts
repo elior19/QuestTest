@@ -11,7 +11,7 @@ export class SetWorkers implements Action {
 
 export class SetFlights implements Action {
   readonly type = EActionTypes.SET_FLIGHTS;
-  constructor(public payload: {flights: Flight[]}) { }
+  constructor(public payload: {flights: Flight[], isClicked: boolean}) { }
 }
 
 export class SetFlightInformation implements Action {

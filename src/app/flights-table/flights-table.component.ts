@@ -19,9 +19,11 @@ export class FlightsTableComponent implements OnInit {
   constructor(private _store: Store<any>) { }
 
   ngOnInit() {
-    this._store.select(selectFlights).subscribe((flights: Flight[]) => {
-      this.flightsList = flights;
-      // TODO: need to dispatch the first flight information here?
+    this._store.select(selectFlights).subscribe((flightsList: {flights: Flight[], isClicked: boolean}) => {
+      this.flightsList = flightsList.flights;
+      if(flightsList.isClicked) {
+        this.chooseFlight(this.flightsList[0]);
+      }
     });
   }
 
@@ -49,11 +51,8 @@ export class FlightsTableComponent implements OnInit {
     this._selectedFlightNumber = value;
   }
 
-  onFlightClicked(flight: Flight): void {
-    // TODO: is it opened in the beginning on the first fly? or only when clicked?
-
+  chooseFlight(flight: Flight): void {
     this.selectedFlightNumber = flight.flightNumber;
-
     let flightInformation: FlightInformation = flight.flightInformation;
     this._store.dispatch(new SetFlightInformation({flightInformation}));
   }

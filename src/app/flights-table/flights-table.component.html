@@ -27,5 +27,5 @@
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns;"
       [ngClass]="{'row-is-clicked': selectedFlightNumber === row.flightNumber}"
-      (click)="onFlightClicked(row)"></tr>
+      (click)="chooseFlight(row)"></tr>
 </table>

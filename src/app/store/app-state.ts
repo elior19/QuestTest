@@ -4,6 +4,6 @@ import {FlightInformation} from '../models/flightInformation';
 
 export class AppState {
   workers: Worker[];
-  flights: Flight[];
+  flights: {flights: Flight[], isClicked: boolean};
   flightInformation: FlightInformation;
 }

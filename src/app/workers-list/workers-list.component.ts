@@ -4,7 +4,6 @@ import {Store} from '@ngrx/store';
 import {Worker} from '../models/worker';
 import {selectWorkers} from '../store/selectors';
 import {DataReceiverService} from '../services/data-receiver.service';
-import {SetFlightInformation} from '../store/actions';
 
 @Component({
   selector: 'app-workers-list',
@@ -42,8 +41,7 @@ export class WorkersListComponent implements OnInit {
 
   onWorkerClicked(workerId: number): void {
     this.selectedWorkerId = workerId;
-    this._dataReceiverService.getFlightsByWorkerId(workerId);
-    // TODO: set null or the first flight of the worker?
-    this._store.dispatch(new SetFlightInformation(null));
+    this._dataReceiverService.currWorkerId = workerId;
+    this._dataReceiverService.getFlightsByWorkerId(workerId, true);
   }
 }

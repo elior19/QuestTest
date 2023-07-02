@@ -51,20 +51,20 @@ export class DataReceiverService implements OnDestroy{
       // clean the previous worker's flights interval
       clearInterval(this.interval);
     }
-    this.getFlightsByWorkerId(this.currWorkerId);
+    this.getFlightsByWorkerId(this.currWorkerId, true);
     this.interval = setInterval(() => {
-      this.getFlightsByWorkerId(this.currWorkerId);
+      this.getFlightsByWorkerId(this.currWorkerId, false);
     }, MINUTE);
   }
 
-  getFlightsByWorkerId(workerId: number): void {
+  getFlightsByWorkerId(workerId: number, isClicked: boolean): void {
     let flights: Flight[] = [];
     let url: string = 'http://' + environment.serverhost + ':' + environment.serverport + '/flights/' + workerId;
     this._http.get<any>(url).subscribe((response: any[]) => {
       response.forEach((flight: any) => {
         flights.push(new Flight().setJson(flight));
       });
-      this._store.dispatch(new SetFlights({flights}));
+      this._store.dispatch(new SetFlights({flights: flights, isClicked: isClicked}));
     });
   }
 
