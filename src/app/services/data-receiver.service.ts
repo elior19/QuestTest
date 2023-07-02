@@ -14,22 +14,22 @@ const MINUTE = 1000*60;
 })
 export class DataReceiverService implements OnDestroy{
   private interval: any;
+  private _currWorkerId: number;
 
   constructor(private _store: Store<{workers: Worker[]}>, private _http: HttpClient) {
     this.getData();
   }
 
+  get currWorkerId(): number {
+    return this._currWorkerId;
+  }
+
+  set currWorkerId(value: number) {
+    this._currWorkerId = value;
+  }
+
   getData(): void {
     this.getWorkers();
-
-    if (this.interval) {
-      // clean the previous worker's flights interval
-      clearInterval(this.interval);
-    }
-    this.getFlightsByWorkerId(1);
-    this.interval = setInterval(() => {
-      this.getFlightsByWorkerId(1);
-    }, MINUTE);
   }
 
   getWorkers(): void {
@@ -39,8 +39,22 @@ export class DataReceiverService implements OnDestroy{
       response.forEach((worker: any) => {
         workers.push(new Worker().setJson(worker));
       });
+      this.currWorkerId = workers[0].id;
       this._store.dispatch(new SetWorkers({workers}));
+
+      this.startGettingFlights();
     });
+  }
+
+  startGettingFlights(): void {
+    if (this.interval) {
+      // clean the previous worker's flights interval
+      clearInterval(this.interval);
+    }
+    this.getFlightsByWorkerId(this.currWorkerId);
+    this.interval = setInterval(() => {
+      this.getFlightsByWorkerId(this.currWorkerId);
+    }, MINUTE);
   }
 
   getFlightsByWorkerId(workerId: number): void {
